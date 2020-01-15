@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup Label="Globals">
+  <SccProjectName>SAK</SccProjectName>
+  <SccProvider>SAK</SccProvider>
+  <SccAuxPath>SAK</SccAuxPath>
+  <SccLocalPath>SAK</SccLocalPath>
+</PropertyGroup>
+<PropertyGroup>
+<TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+<OutputPath>..\..\Presentation\Nop.Web\Plugins\Payments.PayPalPlus</OutputPath>
+<OutDir>$(OutputPath)</OutDir>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+<OutputPath>..\..\Presentation\Nop.Web\Plugins\Payments.PayPalPlus</OutputPath>
+<OutDir>$(OutputPath)</OutDir>
+</PropertyGroup>
+<ItemGroup>
+  <None Remove="logo.jpg" />
+  <None Remove="plugin.json" />
+  <None Remove="Views\AprovalOrder.cshtml" />
+  <None Remove="Views\Configure.cshtml" />
+  <None Remove="Views\CreatePayment.cshtml" />
+  <None Remove="Views\PaymentInfo.cshtml" />
+  <None Remove="Views\_ViewImports.cshtml" />
+</ItemGroup>
+<ItemGroup>
+  <Content Include="logo.jpg">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+  <Content Include="plugin.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="Views\Configure.cshtml">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="Views\AprovalOrder.cshtml">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="Views\CreatePayment.cshtml">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="Views\PaymentInfo.cshtml">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="Views\_ViewImports.cshtml">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+<ItemGroup>
+  <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+</ItemGroup>
+<ItemGroup>
+  <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj" />
+</ItemGroup>
+<ItemGroup>
+  <Reference Include="System.Net">
+    <Private>false</Private>
+  </Reference>
+  <Reference Include="System.Web" />
+</ItemGroup>
+<ItemGroup>
+  <None Update="ObtenerCredencialesProduccion.pdf">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+<!-- This target execute after "Build" target -->
+<Target Name="NopTarget" AfterTargets="Build">
+<!-- Delete unnecessary libraries from plugins path -->
+<MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj" Properties="PluginPath=$(MSBuildProjectDirectory)\$(OutDir)" Targets="NopClear" />
+</Target>
+</Project>
