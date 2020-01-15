@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Payments.PayPalPlus.Models.PaymentInfoModel
+
+<p><b>@T("Plugins.Payments.PayPalPlus.Fields.RedirectionTip")</b></p>
+@Html.Raw(Model.Scriptppp)
+<input type="hidden" name="payerId" id="payerId" value="" />
+<input type="hidden" name="payerTokenCards" id="payerTokenCards" value="" />
+<div id="pppDiv">   
+</div>
