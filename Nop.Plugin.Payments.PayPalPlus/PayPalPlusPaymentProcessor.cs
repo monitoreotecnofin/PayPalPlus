@@ -345,10 +345,7 @@ namespace Nop.Plugin.Payments.PayPalPlus
             //settings
             _settingService.SaveSetting(new PayPalPlusPaymentSettings
             {
-                UseSandbox = true,
-                //Name = "PayPalOfix",
-                //ClientId = "ATY9iVJeNwS03THVUpU13tYwOWszXHK7rf-DiMhIK24rNL6o-bRH-5Uzyc9gq3LS0Jhppx4miLNzNhP1",
-                //SecretId = "EF5YkR-aElzVt8X9OVpk5IbL5ju3pbrpE5-VzeJmSrFDapNXQtKOYGjsfRzIwOyOFAbC8gbIfQE_f7IZ",
+                UseSandbox = true,                
                 Name = "PayPalTienda",
                 ClientId = "ClienteId",
                 SecretId = "SecretId",
