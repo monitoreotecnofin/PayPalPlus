@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "Tarjeta de Debito, Credito, VISA, Mastercard, AMEX",
+  "SystemName": "Payments.PayPalPlus",
+  "Version": "3",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "TvTCommerce, Tecnofin team, AHM",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.PayPalPlus.dll",
+  "Description": "Este plugin permite pagar con PayPal Plus"
+}

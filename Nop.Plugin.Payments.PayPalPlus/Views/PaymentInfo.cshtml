@@ -1,0 +1,34 @@
+﻿@model Nop.Plugin.Payments.PayPalPlus.Models.PaymentInfoModel
+@{
+    Layout = "";    
+}
+
+@if (Model.OnePageCheckoutEnabled)
+{
+    @* con onepage*@    
+    Html.AddScriptParts(ResourceLocation.Head, "~/Plugins/Payments.PayPalPlus/Content/scripts/ppplusdcc.min.js", excludeFromBundle: true);
+    @Html.Raw(Model.Scriptppp)
+}
+else
+{
+   @Html.Raw(Model.Scriptppp)
+}
+<p><b>@T("Plugins.Payments.PayPalPlus.Fields.RedirectionTip")</b></p>
+
+<pre id="responseOnError" class="json-data"></pre>
+<input type="hidden" name="payerId" id="payerId" value="" />
+<input type="hidden" name="payerTokenCards" id="payerTokenCards" value="" />
+<div id="pppDiv">
+    @*<script type="text/javascript">
+                            document.write("iframe is loading...");
+                        </script>
+                    <noscript>
+                        <iframe src="https://www.paypalobjects.com/webstatic/ppplusbr/ppplusbr.min.js/public/pages/pt_BR/nojserror.html" style="height:
+
+        350px; border: none;"></iframe>
+                    </noscript>*@
+</div>
+
+<div class="buttons" id="payment-info-buttons-container">
+    <input type="button" id="pppPaidBotton" class="button-1" value="@T("checkout.button")" />
+</div>
